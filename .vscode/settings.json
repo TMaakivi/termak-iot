@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e609048e-433c-4e2c-9986-8ed655dbc677/resourceGroups/termak-iot/providers/Microsoft.Web/sites/termak-iot",
+    "appService.deploySubpath": "."
+}
