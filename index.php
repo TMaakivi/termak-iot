@@ -23,9 +23,15 @@ file_put_contents($configFile, json_encode(["tempMin"=>$tempMin,"tempMax"=>$temp
 $message = "";
 if (isset($_POST['clear_history'])) {
     if (file_exists($historyFile)) unlink($historyFile);
-    $historyData = [];
+    $historyData = [];   // only reset when clearing
     $message = "History cleared successfully.";
+} else {
+    // Load normally
+    $historyData = file_exists($historyFile)
+        ? json_decode(file_get_contents($historyFile), true)
+        : [];
 }
+
 
 // Load latest and history
 $latestData  = file_exists($latestFile) ? json_decode(file_get_contents($latestFile), true) : null;
